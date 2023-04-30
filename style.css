@@ -1,0 +1,66 @@
+#board {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#board > div:not(.cover) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flag {
+    height: calc(100% + 10px);
+    width: calc(100% + 10px);
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: border-box;
+}
+
+.death {
+    position: absolute;
+    display: flex;
+}
+
+.win {
+    position: absolute;
+    display: flex;
+}
+
+.null {
+    position: absolute;
+    /* background-color: lightgray; */
+    color: gray;
+    font-size: 40px;
+    font-weight: bold;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 3px;
+    box-sizing: border-box;
+} 
+
+.boom {
+    position: absolute;
+    background-color: red;
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: border-box;
+}
+
+.cover {
+    position: absolute;
+    background-color: lightgray;
+    border-style: inset;
+    border-width: 5px;
+    box-sizing: border-box;
+}
+
+#results {
+    display: flex;
+    width: 1000px;
+    right: 50px;
+}

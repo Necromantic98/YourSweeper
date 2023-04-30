@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="Game" content="ISO">
+    <link rel="stylesheet" href="style.css">
+    <script src="convnet-min.js"></script>
+    <script src="deepqlearn.js"></script>
+    <script src="util.js"></script>
+    <script src="vis.js"></script>
+    <script src="script.js"></script>
+    <script src="ai.js"></script>
+    <script src="experience.js"></script>
+</head>
+
+<body>
+    <form id="settings">
+        width = <input id="width" value="10" min="1" max="90" style="width: 100px;">
+        height = <input id="height" value="10" min="1" max="90" style="width: 100px;">
+        bombs = <input id="bombs" value="10" min="0" max="1000" style="width: 100px;">
+        TileScale = <input id="tileScale" value="60" min="0" max="1000" style="width: 100px;">
+        <button id="generate" type="submit">Generate!</button>
+        <button id="aiGenerate" type="submit">AI do stuff</button>
+        <button id="learning" type="submit">learning = true</button>
+        <div id="results">
+            <div id="wins" style="width: 100px;">Wins: 0</div>
+            <div id="losses" style="width: 100px;">Losses: 0</div>
+            <div id="age" style="width: 100px;">Age = 0</div>
+            <div id="learningSum">leraningSum = 0</div>
+        </div>
+    </form>
+    <div id="board">
+    </div>
+    <img id="neuronActivation" onclick="aiDoStuff(this)" src="https://img.ifunny.co/images/f4ee408fa444d491640796eb582a3776b0b1f6eddb9375ef9b39ff7b34da7b83_1.webp" style="position: absolute; scale: 0.2; top: -177px;">
+    <div id="death">
+    </div>
+    <div id="win">
+    </div>
+</body>
+
+</html>
