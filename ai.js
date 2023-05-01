@@ -8,6 +8,7 @@ let death;
 let neuronActivation = document.querySelector("#neuronActivation");
 
 function aiDoStuff(ape) {
+    console.log(parseInt(ape.style.left));
     num_actions = parseInt(width) * parseInt(height); // Number of Tiles
     num_inputs = num_actions * 2;
     let temporal_window = 1; // how many steps AI is looking at, at the same time
@@ -15,14 +16,15 @@ function aiDoStuff(ape) {
     let layer_defs = [];
     layer_defs.push({ type: 'input', out_sx: 1, out_sy: 1, out_depth: network_size });
     layer_defs.push({ type: 'fc', num_neurons: num_actions, activation: 'relu' });
+    layer_defs.push({ type: 'fc', num_neurons: 2, activation: 'relu' });
     layer_defs.push({ type: 'regression', num_neurons: num_actions });
 
-    let tdtrainer_options = { learning_rate: 0.001, momentum: 0.0, batch_size: 30, l2_decay: 0.01 };
+    let tdtrainer_options = { learning_rate: 0.001, momentum: 0.0, batch_size: 20, l2_decay: 0.01 };
 
     opt = {};
     opt.temporal_window = temporal_window;
     opt.experience_size = 50000;
-    opt.start_learn_threshold = 100;
+    opt.start_learn_threshold = 300;
     opt.gamma = 0.7;
     opt.learning_steps_total = 100000;
     opt.learning_steps_burnin = 3000;
@@ -37,11 +39,22 @@ function aiDoStuff(ape) {
     // brain.epsilon_test_time = 0.0; // don't make any random choices, ever
     brain.learning = true;
     // brain.experience = getExperience();
+    // brain.value_net = getValueNet();
 
-    console.log(ape)
     ape.style.borderStyle = "solid";
     ape.style.borderColor = "yellow";
     ape.style.borderWidth = "thick";
+    // let div = document.createElement("div")
+    // div.innerHTML = "Neurons activated";
+    // div.style.position = "absolute";
+    // if (!Number.isNaN(parseInt(ape.style.left))) {
+    //     div.style.left = parseInt(ape.style.left) + 310 + "px";
+    //     console.log(div.style.left)
+    // } else {
+    //     div.style.left = 310 + "px";
+    // }
+    // div.style.top = "210px";
+    // document.body.appendChild(div)
     console.log("Neurons activated");
 }
 
